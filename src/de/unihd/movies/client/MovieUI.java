@@ -10,6 +10,7 @@ import com.google.gwt.cell.client.NumberCell;
 import com.google.gwt.cell.client.SelectionCell;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.Column;
 import com.google.gwt.user.cellview.client.ColumnSortEvent.ListHandler;
@@ -25,6 +26,9 @@ import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.ProvidesKey;
 import com.google.gwt.view.client.SelectionChangeEvent;
 import com.google.gwt.view.client.SingleSelectionModel;
+
+import de.unihd.movies.client.filter.FilteredListDataProvider;
+import de.unihd.movies.client.filter.MovieFilter;
 
 
 /**
@@ -46,11 +50,12 @@ public class MovieUI extends Composite {
 
 	/**
 	 * Creates a MovieUI with the given list of movies.
+	 * @param <lFilter>
 	 * 
 	 * @param movies
 	 *            The list of movies to show.
 	 * */
-	public MovieUI(final ArrayList<Movie> movies) {
+	public <lFilter> MovieUI(final ArrayList<Movie> movies) {
 		
 		
 		final ProvidesKey<Movie> keyProvider = new ProvidesKey<Movie>() {
@@ -153,7 +158,20 @@ public class MovieUI extends Composite {
     		filterBox.setTitle("Filter");
     		hpanel.add(filter);
     		hpanel.add(filterBox);
+    	 		
+    		final FilteredListDataProvider filterProvider = new FilteredListDataProvider ( new MovieFilter ());
     		
+//    		filterBox.addValueChangeHandler(new IValueChanged)
+//    		 FilteredListDataProvider filterProvider = new FilteredListDataProvider (this);
+//    		 public MovieFilter() {
+//    		        advancedWaterMark.addValueChangeHandler(new IValueChanged() {
+    			
+//    		            @Override
+//    		            public void valueChanged(String newValue) {
+//
+//    		                systemSettingsCollection.setFilter(advancedWaterMark.getText());
+//    		            }
+//    		        });
     		
     	/**
 		  * create and add columns to table

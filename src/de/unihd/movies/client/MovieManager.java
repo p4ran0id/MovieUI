@@ -11,7 +11,7 @@ public class MovieManager implements EntryPoint {
 	private ArrayList<Movie> movies = new ArrayList<Movie>();
 	
 	public void onModuleLoad() {
-		//create some testdata
+		//create some test data
 		Movie mov1 = new Movie(5,"Film1",321,"Deutsch","super","iwo");
 		Movie mov2 = new Movie(3,"EFilm2",421,"Englisch","absoltoll","da");
 		Movie mov3 = new Movie(2,"CFilm3",122,"Franoesisch","top","dvd");

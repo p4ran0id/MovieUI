@@ -12,10 +12,10 @@ public class MovieManager implements EntryPoint {
 	
 	public void onModuleLoad() {
 		//create some test data
-		Movie mov1 = new Movie(5,"Film1",321,"Deutsch","super","iwo");
-		Movie mov2 = new Movie(3,"EFilm2",421,"Englisch","absoltoll","da");
-		Movie mov3 = new Movie(2,"CFilm3",122,"Franoesisch","top","dvd");
-		Movie mov4 = new Movie(1,"aFilm4",223,"Russisch","klasse","Regal");
+		Movie mov1 = new Movie("Film1",321,Language.English,"super","iwo");
+		Movie mov2 = new Movie("EFilm2",421,Language.French,"absoltoll","da");
+		Movie mov3 = new Movie("CFilm3",122,Language.Spanish,"top","dvd");
+		Movie mov4 = new Movie("aFilm4",223,Language.German,"klasse","Regal");
 		movies.add(mov1);
 		movies.add(mov2);
 		movies.add(mov3);

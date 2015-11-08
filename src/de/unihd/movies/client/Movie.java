@@ -14,6 +14,16 @@ public class Movie implements Serializable
 	/** The id. */
 	private int id;
 	
+	private static int nextId = 1;
+	
+	public static int getNextId() {
+		return nextId;
+	}
+
+	public static void setNextId(int nextId) {
+		Movie.nextId = nextId;
+	}
+
 	/** The name. */
 	private String name;
 	
@@ -21,7 +31,7 @@ public class Movie implements Serializable
 	private int time;
 	
 	/** The language. */
-	private String language;
+	private Language language;
 	
 	/** The description. */
 	private String description;
@@ -33,12 +43,13 @@ public class Movie implements Serializable
 	 * Instantiates an empty movie.
 	 * */
 	public Movie() {
-		this.id = 0;
 		this.name = "";
 		this.time = 0;
-		this.language = "";
+		this.language = Language.English;
 		this.description = "";
 		this.place = "";
+		this.id = nextId;
+		nextId = nextId + 1;
 	}
 	
 	/**
@@ -51,9 +62,10 @@ public class Movie implements Serializable
 	 * @param description the description
 	 * @param place the place
 	 */
-	public Movie(int id, String name, int time, String language, String description, String place)
+	public Movie(String name, int time, Language language, String description, String place)
 	{
-		this.id = id;
+		this.id = nextId;
+		nextId = nextId + 1;
 		this.name = name;
 		this.time = time;
 		this.language = language;
@@ -120,7 +132,7 @@ public class Movie implements Serializable
 	 *
 	 * @return the language
 	 */
-	public String getLanguage() {
+	public Language getLanguage() {
 		return language;
 	}
 
@@ -129,7 +141,7 @@ public class Movie implements Serializable
 	 *
 	 * @param language the new language
 	 */
-	public void setLanguage(String language) {
+	public void setLanguage(Language language) {
 		this.language = language;
 	}
 
